@@ -4,7 +4,10 @@ import { storiesOf } from '@storybook/react';
 
 import Explorer from '../components/explorer';
 import ExplorerListitem from '../components/explorer_listitem';
-import Tag from '../components/tag.tsx';
+import TagsHolder from '../components/tags_holder';
+import TagSelector from '../components/tag_selector';
+
+import TestSelect from '../components/select'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -56,15 +59,26 @@ storiesOf('Explorer', module)
          <Explorer root={root}/>
         );
 
+
+const tags = [
+    {content: "React", color: "primary"},
+    {content: "typescript", color: "secondary"},
+];
+
 storiesOf('Tag', module)
-    .add("nested list", () =>
-         <div>
-         <Tag content="Primary"/>
-         <Tag content="React"/>
-         <Tag content="Typescript"/>
-         <Tag content="PyTorch"/>
-         </div>
+    .add("tags", () =>
+         <TagsHolder tags={tags}/>
+        )
+    .add("Input", () =>
+         <TagSelector/>
         );
+
+
+storiesOf('React Select', module)
+    .add("tags", () =>
+         <TestSelect />
+        );
+
 
 
 

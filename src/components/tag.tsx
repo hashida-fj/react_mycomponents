@@ -7,6 +7,7 @@ import {
 
 interface OwnProps {
   content: string,
+  color: string,
 };
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,7 +18,7 @@ import {
 
 const Tag = (props: OwnProps) => {
   return (
-    <Badge color="primary" pill>
+    <Badge color={props.color} pill>
 
       {props.content}
 
